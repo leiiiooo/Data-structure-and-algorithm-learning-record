@@ -8,7 +8,8 @@ public class Day04TreeDemo {
 //        demoTree.midOrderTraverse(tree);
 //        demoTree.postOrderTraverse(tree);
 //        demoTree.preOrderTraverseRecursive(tree);
-        demoTree.midOrderTraverseRecursive(tree);
+//        demoTree.midOrderTraverseRecursive(tree);
+        demoTree.postOrderTraverseRecursive(tree);
 
 
     }
