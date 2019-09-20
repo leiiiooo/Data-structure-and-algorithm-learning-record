@@ -25,7 +25,8 @@ public class Test02 {
         node10.next = node6;
 
 //        System.out.println(title1(node1));
-        System.out.println(title2(node1));
+//        System.out.println(title2(node1));
+//        System.out.println(title3(node3).toString());
     }
 
     /**
@@ -88,7 +89,48 @@ public class Test02 {
 
     /**
      * 如果链表有环，求出入环节点
+     * 假设从链表开始节点到切入点的距离是D
+     * 从切入点到第一次相遇的点距离是S1
+     * 从第一次相遇点到切入点的距离是S2
+     * <p>
+     * 则以下等式成立
+     * <p>
+     * 2(D+S1) = n(S1+S2) + D
+     * ⬇
+     * D = S2+(n-1)(S1+S2)
+     * <p>
+     * tip: 2是因为，假设p2的速度为2，p1的速度为1
+     * <p>
+     * 所以实际差值为(n-1)倍的圆环长度
+     * <p>
+     * 前提是一定有环
      */
+    private static Node title3(Node head) {
+        Node p1 = head;
+        Node p2 = head;
+
+        Node meet = null;
+
+        while (null != p1 && null != p2 && null != p2.next) {
+            p1 = p1.next;
+            p2 = p2.next.next;
+            if (p1 == p2) {
+                meet = p1;
+                break;
+            }
+        }
+
+        p1 = head;
+        p2 = meet;
+
+        while (p1 != p2) {
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+
+        return p1;
+    }
+
     private static class Node {
         int value;
 
@@ -96,6 +138,13 @@ public class Test02 {
 
         private Node(int value) {
             this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "value=" + value +
+                    '}';
         }
     }
 }
