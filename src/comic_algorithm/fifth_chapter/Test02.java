@@ -123,7 +123,7 @@ public class Test02 {
         p1 = head;
         p2 = meet;
 
-        while (p1 != p2) {
+        while (null != p1 && null != p2 && p1 != p2) {
             p1 = p1.next;
             p2 = p2.next;
         }
