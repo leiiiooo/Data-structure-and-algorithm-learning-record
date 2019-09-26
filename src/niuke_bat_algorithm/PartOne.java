@@ -18,4 +18,9 @@ public class PartOne {
     private static void title2() {
 
     }
+
+    private static class Node {
+        public Node leftChild;
+        public Node rightChild;
+    }
 }
